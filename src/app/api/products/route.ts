@@ -8,14 +8,11 @@ const parseServiceAccount = (key: string) => {
     // Handle case where key might be double-quoted
     const parsed = JSON.parse(key.startsWith('"') ? JSON.parse(key) : key);
     return parsed;
-  } catch (err) {
+  } catch {
     console.error('Failed to parse GCP key:', key);
     throw new Error('Invalid GCP_SERVICE_ACCOUNT_KEY format');
   }
 };
-const pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-    });
 
 export async function GET() {
   try {
@@ -27,6 +24,9 @@ export async function GET() {
       throw new Error('Missing DATABASE_URL');
     }
 
+    const pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+    });
 
     const credentials = parseServiceAccount(process.env.GCP_SERVICE_ACCOUNT_KEY);
     const storage = new Storage({ credentials });
@@ -55,15 +55,16 @@ export async function GET() {
     );
 
     return NextResponse.json(formattedRows);
-  } catch (error: any) {
-    console.error('API Error:', error.message);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    console.error('API Error:', message);
     return NextResponse.json(
       {
         error: 'Failed to fetch products',
-        details: error.message,
-        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+        details: message,
+        stack: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.stack : undefined) : undefined,
       },
       { status: 500 }
     );
-}
+  }
 }

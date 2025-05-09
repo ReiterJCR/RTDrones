@@ -1,4 +1,3 @@
-// app/api/signed-url/route.ts
 import { Storage } from '@google-cloud/storage';
 import { NextResponse } from 'next/server';
 
@@ -8,7 +7,7 @@ const parseServiceAccount = (key: string) => {
     // Handle case where key might be double-quoted
     const parsed = JSON.parse(key.startsWith('"') ? JSON.parse(key) : key);
     return parsed;
-  } catch (err) {
+  } catch {
     console.error('Failed to parse GCP key:', key);
     throw new Error('Invalid GCP_SERVICE_ACCOUNT_KEY format');
   }
@@ -44,13 +43,14 @@ export async function GET(request: Request) {
       });
 
     return NextResponse.json({ url });
-  } catch (error: any) {
-    console.error('API Error:', error.message);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    console.error('API Error:', message);
     return NextResponse.json(
       {
         error: 'Failed to generate URL',
-        details: error.message,
-        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+        details: message,
+        stack: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.stack : undefined) : undefined,
       },
       { status: 500 }
     );
