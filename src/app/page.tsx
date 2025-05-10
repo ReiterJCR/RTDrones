@@ -53,21 +53,6 @@ export default function Home() {
 
       {/* Content Container */}
       <div className="relative z-10">
-        {/* Transparent Navbar */}
-        <nav className="text-white p-4 sticky top-0 z-50">
-          <div className="container mx-auto flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold hover:text-gray-300 transition">
-              RT Drones
-            </Link>
-            <ul className="flex space-x-6">
-              <li><Link href="/" className="hover:text-gray-300 transition">Home</Link></li>
-              <li><Link href="/buy" className="hover:text-gray-300 transition">Buy</Link></li>
-              <li><Link href="/sell" className="hover:text-gray-300 transition">Sell</Link></li>
-              <li><Link href="/rent" className="hover:text-gray-300 transition">Rent</Link></li>
-              <li><Link href="/contact" className="hover:text-gray-300 transition">Contact</Link></li>
-            </ul>
-          </div>
-        </nav>
 
         {/* Hero Section */}
         <section className="relative text-white py-32">
@@ -96,28 +81,12 @@ export default function Home() {
 
         {/* Main Content with semi-transparent background */}
         <main className="container mx-auto px-4 py-8">
-          <div className="bg-white/65 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+          <div className="bg-white/25 backdrop-blur-sm rounded-xl p-4 shadow-xl">
             {/* Featured Products */}
-            <section className="py-12">
+            <section className="py-12 text-center">
               <div className="flex justify-between items-center mb-8">
-                <h2 className="text-3xl font-bold text-center text-green-900">Featured Drones</h2>
-                <button
-                  onClick={() => setIsFeaturedOpen(!isFeaturedOpen)}
-                  className="text-green-800 hover:text-green-600 transition flex items-center gap-2"
-                >
-                  {isFeaturedOpen ? 'Collapse' : 'Expand'}
-                  <svg
-                    className={`w-5 h-5 transform transition-transform ${isFeaturedOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                <h2 className="text-3xl font-bold text-green-900">Featured Drones</h2>
               </div>
-              
-              {isFeaturedOpen && (
                 <div className="transition-all duration-300">
                   {loading ? (
                     <div className="flex justify-center items-center h-64">
@@ -179,7 +148,6 @@ export default function Home() {
                     </div>
                   )}
                 </div>
-              )}
             </section>
 
             {/* Call to Action */}
@@ -198,35 +166,6 @@ export default function Home() {
             </section>
           </div>
         </main>
-
-        {/* Footer */}
-        <footer className="bg-green-950/80 text-white py-8 backdrop-blur-md">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-4">RT Drones</h3>
-                <p>Your trusted partner for all drone needs since 2025.</p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4">Quick Links</h4>
-                <ul className="space-y-2">
-                  <li><Link href="/about" className="hover:text-gray-300 transition">About Us</Link></li>
-                  <li><Link href="/blog" className="hover:text-gray-300 transition">Blog</Link></li>
-                  <li><Link href="/faq" className="hover:text-gray-300 transition">FAQ</Link></li>
-                  <li><Link href="/terms" className="hover:text-gray-300 transition">Terms of Service</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-4">Contact Us</h4>
-                <p>Email: info@rtdrones.com</p>
-                <p>Phone: (123) 456-7890</p>
-              </div>
-            </div>
-            <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-              <p>© {new Date().getFullYear()} RT Drones. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );
