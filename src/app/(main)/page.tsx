@@ -41,8 +41,8 @@ export default function Home() {
     fetchProducts();
   }, []);
 
-  const handleProductAction = (productId: string, action: 'buy' | 'rent') => {
-    router.push(`/${action}/${productId}`);
+  const handleProductAction = (productId: string) => {
+    router.push(`/details/${productId}`);
   };
 
   return (
@@ -133,18 +133,10 @@ export default function Home() {
                           <div className="flex gap-2">
                             {product.availableFor.includes('Buy') && (
                               <button
-                                onClick={() => handleProductAction(product.id, 'buy')}
+                                onClick={() => handleProductAction(product.id)}
                                 className="flex-1 bg-green-800 text-white px-4 py-2 rounded hover:bg-green-700 transition"
                               >
-                                Buy
-                              </button>
-                            )}
-                            {product.availableFor.includes('Rent') && (
-                              <button
-                                onClick={() => handleProductAction(product.id, 'rent')}
-                                className="flex-1 bg-green-800 text-white px-4 py-2 rounded hover:bg-green-700 transition"
-                              >
-                                Rent
+                                View
                               </button>
                             )}
                           </div>
