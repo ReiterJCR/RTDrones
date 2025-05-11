@@ -35,9 +35,8 @@ export default function RootLayout({
             </Link>
             <ul className="flex space-x-6">
               <li><Link href="/" className="hover:text-gray-300 transition">Home</Link></li>
-              <li><Link href="/buy" className="hover:text-gray-300 transition">Buy</Link></li>
+              <li><Link href="/shop" className="hover:text-gray-300 transition">Shop</Link></li>
               <li><Link href="/sell" className="hover:text-gray-300 transition">Sell</Link></li>
-              <li><Link href="/rent" className="hover:text-gray-300 transition">Rent</Link></li>
               <li><Link href="/contact" className="hover:text-gray-300 transition">Contact</Link></li>
             </ul>
           </div>

@@ -19,7 +19,6 @@ export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [isFeaturedOpen, setIsFeaturedOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -64,16 +63,16 @@ export default function Home() {
             </p>
             <div className="flex gap-4 justify-center">
               <Link
-                href="/buy"
+                href="/shop"
                 className="inline-block bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition shadow-lg"
               >
                 Shop Drones
               </Link>
               <Link
-                href="/rent"
+                href="/sell"
                 className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition"
               >
-                Rent Equipment
+                Sell to Us
               </Link>
             </div>
           </div>
@@ -81,11 +80,17 @@ export default function Home() {
 
         {/* Main Content with semi-transparent background */}
         <main className="container mx-auto px-4 py-8">
-          <div className="bg-white/25 backdrop-blur-sm rounded-xl p-4 shadow-xl">
+          <div className="bg-white/40 backdrop-blur-md rounded-xl p-12 shadow-xl">
             {/* Featured Products */}
             <section className="py-12 text-center">
               <div className="flex justify-between items-center mb-8">
                 <h2 className="text-3xl font-bold text-green-900">Featured Drones</h2>
+                <Link
+                  href="/shop"
+                  className="text-green-800 hover:underline"
+                >
+                See All Products
+                </Link>
               </div>
                 <div className="transition-all duration-300">
                   {loading ? (
