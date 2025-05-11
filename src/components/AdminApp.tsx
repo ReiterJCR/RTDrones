@@ -1,25 +1,19 @@
-"use client";
-import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
+'use client';
 
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
+import { dataProvider } from '@/lib/supabaseDataProvider';
 
-const AdminApp = () => (
-  <Admin dataProvider={dataProvider}>
-    <Resource
-      name="users"
-      list={ListGuesser}
-      edit={EditGuesser}
-      recordRepresentation="name"
-    />
-    <Resource
-      name="posts"
-      list={ListGuesser}
-      edit={EditGuesser}
-      recordRepresentation="title"
-    />
-    <Resource name="comments" list={ListGuesser} edit={EditGuesser} />
-  </Admin>
-);
-
-export default AdminApp;
+export default function AdminPanel() {
+  return (
+    <Admin dataProvider={dataProvider}>
+      <Resource
+        name="products"
+        list={ListGuesser}
+        edit={EditGuesser}
+        recordRepresentation="name"
+        hasCreate={true}
+        hasEdit={true}
+      />
+    </Admin>
+  );
+}

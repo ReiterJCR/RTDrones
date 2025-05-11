@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js';
    import { supabaseDataProvider } from 'ra-supabase';
 
    export const dataProvider = supabaseDataProvider({
