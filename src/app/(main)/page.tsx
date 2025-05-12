@@ -42,7 +42,7 @@ export default function Home() {
   }, []);
 
   const handleProductAction = (productId: string) => {
-    router.push(`/details/${productId}`);
+    router.push(`/shop/details/${productId}`);
   };
 
   return (
