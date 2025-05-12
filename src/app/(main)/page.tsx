@@ -68,12 +68,6 @@ export default function Home() {
               >
                 Shop Drones
               </Link>
-              <Link
-                href="/sell"
-                className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition"
-              >
-                Sell to Us
-              </Link>
             </div>
           </div>
         </section>
