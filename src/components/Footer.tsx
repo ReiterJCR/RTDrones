@@ -12,10 +12,7 @@ export default function Footer() {
               <div>
                 <h4 className="font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
-                  <li><Link href="/about" className="hover:text-gray-300 transition">About Us</Link></li>
-                  <li><Link href="/blog" className="hover:text-gray-300 transition">Blog</Link></li>
-                  <li><Link href="/faq" className="hover:text-gray-300 transition">FAQ</Link></li>
-                  <li><Link href="/terms" className="hover:text-gray-300 transition">Terms of Service</Link></li>
+                  <li><Link href="https://www.joelreiter.com" className="hover:text-gray-300 transition">My Portfolio</Link></li>
                 </ul>
               </div>
               <div>

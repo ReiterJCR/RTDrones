@@ -169,12 +169,6 @@ export default function Shop() {
           <p className="mb-4 max-w-xl mx-auto text-white text-sm">
             Our experts are here to guide you to the perfect drone for your needs.
           </p>
-          <Link
-            href="/"
-            className="inline-block bg-gray-800 text-white px-5 py-2 rounded-lg font-semibold hover:bg-gray-700 transition"
-          >
-            Contact Us
-          </Link>
         </section>
       </div>
     </div>

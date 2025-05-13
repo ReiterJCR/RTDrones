@@ -148,12 +148,6 @@ export default function Home() {
                 Whether you're a professional photographer, a hobbyist, or a commercial operator,
                 we have the perfect drone solution for you.
               </p>
-              <Link
-                href="/"
-                className="inline-block bg-gray-800 text-white px-5 py-2 rounded-lg font-semibold hover:bg-gray-700 transition"
-              >
-                Contact Our Experts
-              </Link>
             </section>
           </div>
         </main>
